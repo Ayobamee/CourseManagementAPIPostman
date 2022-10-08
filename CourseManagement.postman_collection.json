@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "e61761ea-1e3e-4b13-a953-0c7e5195d420",
+		"name": "COURSES(demo)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21096013"
+	},
+	"item": [
+		{
+			"name": "CREATE COURSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonResponse = pm.response.json();",
+							"pm.globals.set(\"courseId\", jsonResponse.id);",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches Title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Second Course\");",
+							"});",
+							"",
+							"pm.test(\"Body matches description\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Testing\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Second Course\",\n    \"categoryId\": 2,\n    \"description\": \"Testing\",\n    \"courseUrl\": \"https://www.youtube.com/watch?v=8vXoMqWgbQQ\",\n    \"imageUrl\": \"https://source.unsplash.com/user/c_v_r/900x800\",\n    \"location\": \"online\",\n    \"isPremium\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://notification-service.ishchoolapi.xyz/api/courses/",
+					"protocol": "https",
+					"host": [
+						"notification-service",
+						"ishchoolapi",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"courses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST COURSES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body matches description\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Testing\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COURSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches correct course title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Second Course\");",
+							"});",
+							"",
+							"pm.test(\"Body matches correct course description\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Second Course\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/courses/{{courseId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"courses",
+						"{{courseId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE COURSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"First Course\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Modified first course\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"First Course\",\n    \"categoryId\" : 2,\n    \"description\" : \"Modified first course\",\n    \"courseUrl\" : \"London Lagos Los Angeles\",\n    \"imageUrl\" : \"https://source.unsplash.com/user/c_v_r/900x800\",\n    \"location\": \"offline\",\n    \"isPremium\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://notification-service.ishchoolapi.xyz/api/courses/{{courseId}}",
+					"protocol": "https",
+					"host": [
+						"notification-service",
+						"ishchoolapi",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"courses",
+						"{{courseId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE COURSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://notification-service.ishchoolapi.xyz/api/courses/{{courseId}}",
+					"protocol": "https",
+					"host": [
+						"notification-service",
+						"ishchoolapi",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"courses",
+						"{{courseId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

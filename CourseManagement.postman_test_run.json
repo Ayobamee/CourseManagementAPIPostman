@@ -1,0 +1,209 @@
+{
+	"id": "69df14b7-aaa7-4611-8cfe-c4501d3f8905",
+	"name": "COURSES(demo)",
+	"timestamp": "2022-10-08T10:06:47.168Z",
+	"collection_id": "21096013-e61761ea-1e3e-4b13-a953-0c7e5195d420",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "fc4243d7-3da7-407a-b720-d0dc6571f07b",
+			"name": "CREATE COURSE",
+			"url": "https://notification-service.ishchoolapi.xyz/api/courses/",
+			"time": 158,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches Title": true,
+				"Body matches description": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches Title": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches description": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				158
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches Title": true,
+					"Body matches description": true
+				}
+			]
+		},
+		{
+			"id": "5ba783b7-69c9-40d8-a03c-ba307a42910b",
+			"name": "LIST COURSES",
+			"url": "https://notification-service.ishchoolapi.xyz/api/courses",
+			"time": 148,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches description": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches description": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				148
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches description": true
+				}
+			]
+		},
+		{
+			"id": "9add5ec5-04ab-49b4-82a8-32424df866ac",
+			"name": "GET COURSE",
+			"url": "https://notification-service.ishchoolapi.xyz/api/courses/1386",
+			"time": 140,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches correct course title": true,
+				"Body matches correct course description": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches correct course title": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches correct course description": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				140
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches correct course title": true,
+					"Body matches correct course description": true
+				}
+			]
+		},
+		{
+			"id": "2ca459ce-4f29-453e-b522-e92e132f5196",
+			"name": "UPDATE COURSE",
+			"url": "https://notification-service.ishchoolapi.xyz/api/courses/1386",
+			"time": 169,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				169
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "514106b6-bd0e-4c54-a665-3a3ecabac14b",
+			"name": "DELETE COURSE",
+			"url": "https://notification-service.ishchoolapi.xyz/api/courses/1386",
+			"time": 140,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				140
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 755,
+	"collection": {
+		"requests": [
+			{
+				"id": "fc4243d7-3da7-407a-b720-d0dc6571f07b",
+				"method": "POST"
+			},
+			{
+				"id": "5ba783b7-69c9-40d8-a03c-ba307a42910b",
+				"method": "GET"
+			},
+			{
+				"id": "9add5ec5-04ab-49b4-82a8-32424df866ac",
+				"method": "GET"
+			},
+			{
+				"id": "2ca459ce-4f29-453e-b522-e92e132f5196",
+				"method": "PUT"
+			},
+			{
+				"id": "514106b6-bd0e-4c54-a665-3a3ecabac14b",
+				"method": "DELETE"
+			}
+		]
+	}
+}
